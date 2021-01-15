@@ -2,7 +2,7 @@ import axios from 'axios';
 // axios is used to handle api calls (through api calls to connect with server side, and server side using express
 // routes to input/output data from MongoDB
 
-const url = 'http://localhost:5000/posts';
+const url = 'https://event-book-project.herokuapp.com/posts';
 
 export const fetchPosts = () => axios.get(url);
 
