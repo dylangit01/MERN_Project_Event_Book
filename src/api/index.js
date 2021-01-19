@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // const url = 'https://event-book-project.herokuapp.com/posts';    ==> This url is used when App server is on Heroku server
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: 'https://event-book-project.herokuapp.com/' });
 
 API.interceptors.request.use(req => {
   if(localStorage.getItem('profile')) {

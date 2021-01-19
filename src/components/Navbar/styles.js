@@ -9,10 +9,11 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
+    padding: '5px 50px',
+    background: '#dddddd',
   },
   heading: {
-    color: 'rgba(0,183,255, 1)',
+    color: '#30475e',
     textDecoration: 'none',
   },
   image: {
@@ -31,6 +32,7 @@ export default makeStyles((theme) => ({
   userName: {
     display: 'flex',
     alignItems: 'center',
+    color: '#30475e'
   },
   brandContainer: {
     display: 'flex',
