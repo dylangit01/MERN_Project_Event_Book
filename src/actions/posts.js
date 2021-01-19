@@ -46,4 +46,4 @@ export const likePost = id => async(dispatch) => {
   } catch(e) {
     console.log(e)
   }
-}
+};

@@ -11,6 +11,10 @@ import { useDispatch } from "react-redux";
 import useStyles from './styles';
 import { AUTH } from "../../constants/actionTypes";
 
+import { signup, signin } from '../../actions/auth';
+
+const initialData = { firstName: '', lastName: '', email: '', password: '', confirmPassword: ''};
+
 const Auth = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -21,16 +25,24 @@ const Auth = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword)
   };
 
-  const handleSubmit = () => {
+  const [formData, setFormData] = useState(initialData);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(formData)
+    if(isSignup) {
+      dispatch(signup(formData, history))
+    } else {
+      dispatch(signin(formData, history))
+    }
   };
-  const handleChange = () => {
-
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value})
   };
 
   const switchMode = () => {
     setIsSignup((preIsSignup) => !preIsSignup);
-    // handleShowPassword(false);
+    setShowPassword(false);
   };
 
   const googleSuccess = async (res) => {
@@ -68,7 +80,7 @@ const Auth = () => {
             <Input name='email' label='Email Address' handleChange={handleChange} type='email'/>
             <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'}
                    handleShowPassword={handleShowPassword}/>
-            {isSignup && <Input name='confirmPassword' label='Confirm Password' handleChange={handleChange}/>}
+            {isSignup && <Input name='confirmPassword' label='Confirm Password' handleChange={handleChange} type='password'/>}
           </Grid>
           <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>
             {isSignup ? 'Sign UP' : 'Sign In'}
