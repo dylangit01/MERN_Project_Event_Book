@@ -12,7 +12,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import { useDispatch } from "react-redux";
 import { deletePost, likePost } from '../../../actions/posts';
 
-const Post = ({ post, setCurrentId }) => {
+const Post = ({ post, setCurrentId, setShowAddEvent }) => {
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -42,8 +42,8 @@ const Post = ({ post, setCurrentId }) => {
       {
         (user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
           <div className={ classes.overlay2 }>
-            <Button style={ { color: 'white' } } size='small'
-                    onClick={ () => setCurrentId(post._id) }>
+            <Button style={ { color: 'skyblue' } } size='small'
+                    onClick={ () => {setCurrentId(post._id); setShowAddEvent(true)} }>
               <MoreHorizIcon fontSize='default'/>
             </Button>
           </div>

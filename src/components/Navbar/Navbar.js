@@ -57,15 +57,15 @@ const Navbar = () => {
     }
 
     const DrawerChoices = () => {
-      if(user){
-        return(
-            <div className={classes.mobileDrawer}>
-              <Avatar className={ classes.purple } alt={ user.result.name } src={ user.result.imageUrl }>{ user.result.name.charAt(0) }</Avatar>
-              <Typography className={ classes.userName } variant='h6'>{ user.result.name }</Typography>
-              <Button variant='outlined' color='secondary' onClick={ logout }>Logout</Button>
-            </div>
-          )
-      } else return <Button style={{marginTop: '50px'}} component={ Link } to='/auth' variant='contained' color='primary'>Sign In </Button>
+      if(user) {
+        return (
+          <div className={ classes.mobileDrawer }>
+            <Avatar className={ classes.purple } alt={ user.result.name } src={ user.result.imageUrl }>{ user.result.name.charAt(0) }</Avatar>
+            <Typography className={ classes.userName } variant='h6'>{ user.result.name }</Typography>
+            <Button variant='outlined' color='secondary' onClick={ logout }>Logout</Button>
+          </div>
+        )
+      } else return <Button style={ { marginTop: '50px' } } component={ Link } to='/auth' variant='contained' color='primary'>Sign In </Button>
     }
 
     return (
@@ -81,7 +81,7 @@ const Navbar = () => {
           <MenuIcon/>
         </IconButton>
         <Typography component={ Link } to='/' className={ classes.heading } variant='h4' align='center'>Events</Typography>
-        <img className={ classes.image } src={ eventBook } alt="eventBook" height='50'/>
+        <img className={ classes.image } src={ eventBook } alt="eventBook"/>
         <Drawer
           { ...{
             anchor: 'left',

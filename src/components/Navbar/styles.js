@@ -18,9 +18,14 @@ export default makeStyles((theme) => ({
   heading: {
     color: '#30475e',
     textDecoration: 'none',
+    marginLeft: '20px'
   },
   image: {
     marginLeft: '15px',
+    '@media (max-width: 900px)': {
+      height: '50px',
+      marginLeft: '30px'
+    },
   },
   toolbar: {
     display: 'flex',

@@ -6,7 +6,7 @@ import {Grid, CircularProgress} from "@material-ui/core";
 
 import {useSelector} from 'react-redux';
 
-const Posts = ({ setCurrentId }) => {
+const Posts = ({ setCurrentId, setShowAddEvent }) => {
   const posts = useSelector((state) => state.posts);
   const classes = useStyles();
 
@@ -17,7 +17,7 @@ const Posts = ({ setCurrentId }) => {
       <Grid className={classes.container} container alignItems='stretch' spacing={3}>
         {posts.map(post => (
           <Grid key={post._id} item xs={12} xm={6} md={6}>
-            <Post post={post} setCurrentId = {setCurrentId} />
+            <Post post={post} setCurrentId = {setCurrentId} setShowAddEvent={setShowAddEvent} />
           </Grid>
         ))}
       </Grid>
