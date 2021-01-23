@@ -4,8 +4,7 @@ import { FETCH_ALL, CREATE, DELETE, UPDATE } from '../constants/actionTypes'
 // Action Creators
 export const getPosts = () => async(dispatch) => {
   try {
-    const {data} = await api.fetchPosts();    // Here, const response = await api.fetchPosts(), since response has
-    // data object, we destructing it directly as { data }
+    const {data} = await api.fetchPosts();    // Here, const response = await api.fetchPosts(), since response has data object, we destructing it directly as { data }
     dispatch({type: FETCH_ALL, payload: data})
   } catch (err) {
     console.log(err.message)

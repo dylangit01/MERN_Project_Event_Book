@@ -11,6 +11,9 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     padding: '5px 50px',
     background: '#dddddd',
+    '@media (max-width: 900px)': {
+      paddingLeft: '10px'
+    }
   },
   heading: {
     color: '#30475e',
@@ -32,7 +35,10 @@ export default makeStyles((theme) => ({
   userName: {
     display: 'flex',
     alignItems: 'center',
-    color: '#30475e'
+    color: '#30475e',
+    '@media (max-width: 900px)': {
+      paddingBottom: '15px'
+    }
   },
   brandContainer: {
     display: 'flex',
@@ -42,4 +48,11 @@ export default makeStyles((theme) => ({
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
   },
+  mobileDrawer: {
+      marginTop: '30px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+  }
 }));

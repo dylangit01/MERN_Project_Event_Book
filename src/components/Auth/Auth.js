@@ -22,7 +22,7 @@ const Auth = () => {
   const [ isSignup, setIsSignup ] = useState(false);
   const history = useHistory();
   const handleShowPassword = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword)
+    setShowPassword(!showPassword)
   };
 
   const [formData, setFormData] = useState(initialData);
