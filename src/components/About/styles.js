@@ -11,7 +11,7 @@ export default makeStyles({
 
   portLink: {
     // textDecoration: 'none',
-    color: '#ecf4f3',
+    color: '#0a043c',
     cursor: 'pointer',
     marginBottom: '30px',
     lineHeight: '1.5',

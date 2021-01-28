@@ -104,7 +104,6 @@ const Auth = () => {
                 {isSignup ? 'Already have an account?  Sign In' : "Don't have an account? Sign Up"}
               </Button>
             </Grid>
-
           </Grid>
         </form>
       </Paper>
