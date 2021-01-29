@@ -10,7 +10,7 @@ import { createPost, updatePost } from '../../actions/posts';
 
 const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
-  const [ postDate, setPostData ] = useState({ title: '', message: '', tags: '', selectedFile: '' });
+  const [ postData, setPostData ] = useState({ title: '', message: '', tags: '', selectedFile: '' });
   const dispatch = useDispatch();
   const post = useSelector(state => currentId ? state.posts.find(p => p._id === currentId) : null);
 
@@ -24,9 +24,9 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if(currentId) {
-      dispatch(updatePost(currentId, { ...postDate, name: user?.result?.name }));
+      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
     } else {
-      dispatch(createPost({ ...postDate, name: user?.result?.name }));    // result is from localstorage Value object key
+      dispatch(createPost({ ...postData, name: user?.result?.name }));    // result is from localstorage Value object key
     }
     clear();
   };
@@ -57,19 +57,19 @@ const Form = ({ currentId, setCurrentId }) => {
           {/* Since having Login part, we dont need the creator in the form any more, instead, it will be the req: userId of the token in the localstorage*/ }
 
           <TextField name='title' variant='outlined' label='Title' fullWidth
-                     value={ postDate.title }
-                     onChange={ event => setPostData({ ...postDate, title: event.target.value }) }/>
+                     value={ postData.title }
+                     onChange={ event => setPostData({ ...postData, title: event.target.value }) }/>
           <TextField name='message' variant='outlined' label='Message' fullWidth multiline rows={ 4 }
-                     value={ postDate.message }
-                     onChange={ event => setPostData({ ...postDate, message: event.target.value }) }/>
-          <TextField name='tags' variant='outlined' label='Tags' fullWidth
-                     value={ postDate.tags }
-                     onChange={ event => setPostData({ ...postDate, tags: event.target.value }) }/>
+                     value={ postData.message }
+                     onChange={ event => setPostData({ ...postData, message: event.target.value }) }/>
+          <TextField name='tags' variant='outlined' label='Tags' fullWidth placeholder='using comma to separate'
+                     value={ postData.tags }
+                     onChange={ event => setPostData({ ...postData, tags: event.target.value.replace(' ','').split(',') }) }/>
           <div className={ classes.fileInput }>
             <FileBase
               type='file'
               multiple={ false }
-              onDone={ ({ base64 }) => setPostData({ ...postDate, selectedFile: base64 }) }
+              onDone={ ({ base64 }) => setPostData({ ...postData, selectedFile: base64 }) }
             />
           </div>
           <Button className={ classes.buttonSubmit } variant='contained' color='primary' size='large' type='submit' fullWidth>Submit</Button>
