@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
   },
   circularProcess: {
     paddingTop: '200px',
-    height: '500px',
+    height: '400px',
     display: 'flex',
     justifyContent: 'center'
   }
