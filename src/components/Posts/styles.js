@@ -11,4 +11,10 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  circularProcess: {
+    paddingTop: '200px',
+    height: '500px',
+    display: 'flex',
+    justifyContent: 'center'
+  }
 }));
