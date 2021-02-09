@@ -15,7 +15,7 @@ const Posts = ({ setCurrentId, setShowAddEvent }) => {
   return (
     !posts.length ? <div className={classes.circularProcess}><CircularProgress /></div> : (
       <Grid className={classes.container} container alignItems='stretch' spacing={3}>
-        {posts.slice(0).reverse().map(post => (
+        {[...posts].reverse().map(post => (
           <Grid key={post._id} item xs={12} xm={6} md={6}>
             <Post post={post} setCurrentId = {setCurrentId} setShowAddEvent={setShowAddEvent} />
           </Grid>
