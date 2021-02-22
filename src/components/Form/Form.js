@@ -52,8 +52,8 @@ const Form = ({ currentId, setCurrentId }) => {
           {/*<Typography variant='h6'> { currentId ? 'Updating' : 'Creating' } an Event</Typography>*/ }
 
           {/*<TextField name='creator' variant='outlined' label='Creator' fullWidth*/ }
-          {/*           value={ postDate.creator }*/ }
-          {/*           onChange={ event => setPostData( { ...postDate, creator: event.target.value } ) }/>*/ }
+          {/*           value={ postData.creator }*/ }
+          {/*           onChange={ event => setPostData( { ...postData, creator: event.target.value } ) }/>*/ }
           {/* Since having Login part, we dont need the creator in the form any more, instead, it will be the req: userId of the token in the localstorage*/ }
 
           <TextField name='title' variant='outlined' label='Title' fullWidth
