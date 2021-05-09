@@ -1,10 +1,10 @@
 import React from 'react';
 import Post from './Post/Post';
-import useStyles from './styles'
+import useStyles from './styles';
 
-import {Grid, CircularProgress} from "@material-ui/core";
+import { Grid, CircularProgress } from '@material-ui/core';
 
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Posts = ({ setCurrentId, setShowAddEvent }) => {
   const posts = useSelector((state) => state.posts);
@@ -12,17 +12,19 @@ const Posts = ({ setCurrentId, setShowAddEvent }) => {
 
   // console.log(posts);
 
-  return (
-    !posts.length ? <div className={classes.circularProcess}><CircularProgress /></div> : (
-      <Grid className={classes.container} container alignItems='stretch' spacing={3}>
-        {[...posts].reverse().map(post => (
-          <Grid key={post._id} item xs={12} xm={6} md={6}>
-            <Post post={post} setCurrentId = {setCurrentId} setShowAddEvent={setShowAddEvent} />
-          </Grid>
-        ))}
-      </Grid>
-    )
-  )
+  return !posts.length ? (
+    <div className={classes.circularProcess}>
+      <CircularProgress />
+    </div>
+  ) : (
+    <Grid className={classes.container} container alignItems='stretch' spacing={3}>
+      {[...posts].reverse().map((post) => (
+        <Grid key={post._id} item xs={12} xm={6} md={6}>
+          <Post post={post} setCurrentId={setCurrentId} setShowAddEvent={setShowAddEvent} />
+        </Grid>
+      ))}
+    </Grid>
+  );
 };
 
 export default Posts;

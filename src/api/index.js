@@ -14,6 +14,15 @@ API.interceptors.request.use(req => {
 
 export const fetchPosts = () => API.get('/posts');
 
+// export const fetchPosts = async () => {
+//   try {
+//     console.log('this is a test')
+//     return await API.get('/posts')
+//   } catch( e ) {
+//     console.log(e)
+//   }
+// }
+
 export const createPost = (newPost) => API.post('/posts', newPost);
 
 export const updatePost = (id, updatedPost) => API.patch(`/posts/${ id }`, updatedPost);
