@@ -24,7 +24,7 @@ const Post = ({ post, setCurrentId, setShowAddEvent }) => {
       return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
         ? (
           <><ThumbUpAltIcon
-            fontSize="small"/>&nbsp;{ post.likes.length > 2 ? `${ post.likes.length } likes` : `${ post.likes.length } like${ post.likes.length > 1 ? 's' : '' }` }</>
+            fontSize="small"/>&nbsp;{ post.likes.length >= 2 ? `${ post.likes.length } likes` : `${ post.likes.length } like` }</>
         ) : (
           <><ThumbUpAltOutlined fontSize="small"/>&nbsp;{ post.likes.length } { post.likes.length === 1 ? 'Like' : 'Likes' }</>
         );
@@ -54,7 +54,7 @@ const Post = ({ post, setCurrentId, setShowAddEvent }) => {
       </div>
       <Typography className={ classes.title } variant='h5' gutterBottom>{ post.title }</Typography>
       <CardContent>
-        <Typography variant='body2' color='textSecondary' component='p'>{ post.message }</Typography>
+        <Typography className={classes.msgWidth} variant='body2' color='textSecondary' component='p'>{ post.message }</Typography>
       </CardContent>
       <CardActions className={ classes.cardActions }>
         <Button size='small' color='primary' disabled={ !user?.result } onClick={ () => dispatch(likePost(post._id)) }>
